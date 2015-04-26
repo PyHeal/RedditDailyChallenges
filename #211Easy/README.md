@@ -14,8 +14,10 @@ The idea of the challenge was to write a program that played the game with any n
 
 This complies on the command line with Visual Studio 2013.
 
-csc Program.exe
+csc Program.cs
 
 Then to run
 
-Program <name>
+Program Tyler 
+
+Or any name.
