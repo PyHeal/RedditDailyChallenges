@@ -24,7 +24,7 @@ namespace FriendlyDateRanges
 
         public void findMonth()
         {
-            string[] months = { "Jan", "Feb", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
             this.strMonth = months[this.month - 1];
         }
 
@@ -89,21 +89,7 @@ namespace FriendlyDateRanges
 
     class Program
     {
-        int yearDiffernece;
-        int currentYear;
-
-        void Program(int yd, int cy)
-        {
-            this.yearDiffernece = yd;
-            this.currentYear = cy;
-        }
-
-        void printDateRange()
-        {
-
-        }
-
-
+        
         static int Main(string[] args)
         {
             if(args.Length != 2)
@@ -113,16 +99,12 @@ namespace FriendlyDateRanges
             }
 
             string[] dateOne = args[0].Split('-');
-/*            foreach (string s in what)
-            {
-                Console.WriteLine(s);
-            }*/
+
 
             string[] dateTwo = args[1].Split('-');
- /*           foreach (string s in otherWhat)
-            {
-                Console.WriteLine(s);
-            }*/
+
+            int currentYear = 2015;
+
 
             Date one = new Date(Convert.ToInt32(dateOne[0]), Convert.ToInt32(dateOne[1]), Convert.ToInt32(dateOne[2]));
             Date two = new Date(Convert.ToInt32(dateTwo[0]), Convert.ToInt32(dateTwo[1]), Convert.ToInt32(dateTwo[2]));
@@ -133,12 +115,23 @@ namespace FriendlyDateRanges
             two.findMonth();
             two.dateCrap();
 
-            Console.Write(one.strMonth + " " + one.day + one.dateSuff + ", " + one.year + " - ");
-            Console.WriteLine(two.strMonth + " " + two.day + two.dateSuff + ", " + two.year);
+            Console.Write(one.strMonth + " ");
+            Console.Write(one.day + one.dateSuff);
+            
 
-            int catchMe = one.yearCompare(two);
-
-            Console.WriteLine(catchMe);
+            if (one.year != currentYear && one.year != two.year || one.yearCompare(two) > 1 || one.yearCompare(two) == -1)
+            {
+                Console.Write(", " + one.year);
+            }
+            Console.Write(" - " + two.strMonth + " " + two.day+ two.dateSuff );
+            if(two.year != currentYear && (one.yearCompare(two) != 0 || one.year != currentYear))
+            {
+                Console.WriteLine(", " + two.year);
+            }
+            else
+            {
+                Console.WriteLine("");
+            }
 
             return 0;
         }
