@@ -2,3 +2,12 @@ Compares output to expected output and will tell you if it matches, suppose to b
 
 (Not Done)
 
+
+Usage
+
+Expected output.txt expected.txt
+
+Will spit out test.html which will show you the output and expected side by side and tell you if it is matched
+
+
+
